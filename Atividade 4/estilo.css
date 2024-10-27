@@ -1,0 +1,168 @@
+body{
+    padding: 0px;
+    margin: 0px;
+
+    font-family: "Source Sans Pro", sans-serif;
+    
+}
+/*Rodapé*/
+nav{
+    background-color: #100f0d;
+
+    color: beige;
+    font-size: 1.5em;
+    text-transform: uppercase;
+
+    padding: 10px 20px;
+
+    display: flex;
+}
+
+nav > img{
+    width: 10%;
+}
+
+nav ul, #contatos ul{
+    list-style-type: none;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+li{
+    margin: 0 2em;
+
+    font-size: 0.9em;
+}
+
+nav li:hover{
+    text-decoration: underline;
+}
+
+/*Main*/
+#noticias{
+    background-color: #1d2329;
+
+    padding: 40px;
+
+    color: white;
+    font-weight: bold;
+
+    display: flex;
+}
+/*Artigo 1*/
+.esquerda{
+    width: 55%;
+}
+
+.noticia_P > img{
+    width: 100%;
+    height: 15em;
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+.noticia_P p{
+    font-size: 2.1em;
+    text-align: left;
+
+    margin: 10px 0;
+}
+.noticia_P p:hover,
+.noticia_direita p:hover,
+#contatos li:hover{
+    color: rgb(228, 62, 76);
+    cursor: pointer;
+}
+
+/*Artigo 2*/
+.direita{
+    margin-left: 35px;
+    width: 40%;
+}
+.noticia_direita{
+
+    height: 80px;
+
+    display: flex;
+
+    font-size: 22px;
+
+    margin-bottom: 2em;
+}
+
+.noticia_direita > img{
+    width: 30%;
+    height: 100px;
+
+    margin-right: 22px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+.noticia_direita p{
+    margin: auto 0;
+}
+
+/*Mais noticias*/
+#mais_noticias{
+    padding: 25px;
+    padding-top: 10px;
+
+    display: flex;
+}
+
+.coluna{
+    width: 30%;
+
+    margin: 20px 30px;
+    margin-top: 5px;
+}
+
+.coluna article{
+    margin-bottom: 45px;
+}
+.manchete{
+    font-size: 18px;
+}
+
+.tempo{
+    color: rgb(162, 172, 172);
+    font-size: 14px;
+}
+
+.coluna > h3{
+    text-align: center;
+}
+
+#anuncio{
+    height: 500px;
+    margin: 0 auto;
+    border: solid 10px rgb(212, 211, 211);
+}
+
+/*Rodapé*/
+footer{
+    background-color: #191f24;
+
+    padding: 25px 15px;
+
+    color: white;
+    font-size: 1.5em;
+
+    font-weight: bold;
+    text-align: center;
+}
+
+#contatos{
+    border-bottom: solid white;
+}
+
+#direitos{
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 18px;
+}

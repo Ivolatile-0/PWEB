@@ -1,0 +1,64 @@
+#caixa {
+    width: 500px;
+    height: 500px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+}
+
+@media (max-width: 420px) {
+    #caixa {
+        background-color: gray;
+    }
+    #texto {
+        content: "Cinza";
+    }
+}
+
+@media (min-width: 421px) and (max-width: 768px) {
+    #caixa {
+        background-color: orange;
+    }
+    #texto {
+        content: "Laranja";
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #caixa {
+        background-color: purple;
+    }
+    #texto {
+        content: "Roxo";
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+    #caixa {
+        background-color: pink;
+    }
+    #texto {
+        content: "Rosa";
+    }
+}
+
+@media (min-width: 1367px) and (max-width: 1920px) {
+    #caixa {
+        background-color: blue;
+    }
+    #texto {
+        content: "Azul";
+    }
+}
+
+@media (min-width: 1921px) {
+    #caixa {
+        background-color: green;
+    }
+    #texto {
+        content: "Verde";
+    }
+}
