@@ -1,0 +1,298 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 2.5px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Sidebar */
+#sidebar {
+    font-family: Lato sans-serif light;
+    font-size: medium;
+    color: #4b5563;
+    width: 200px;
+    transition: all 0.3s;
+}
+  
+#sidebar.collapsed {
+    width: 70px;
+}
+  
+#sidebar .nav-text {
+    font-family: Lato sans-serif light;
+    font-size: medium;
+    color: #4b5563;
+    display: inline-block;
+    transition: all 0.3s;
+}
+  
+#sidebar.collapsed .nav-text {
+    display: none;
+}
+  
+#sidebar .nav-link {
+    font-family: Lato sans-serif light;
+    font-size: medium;
+    color: #4b5563;
+    padding: 10px 10px;
+}
+  
+#sidebar .sidebar-header {
+    border-bottom: 1px solid #ddd;
+}
+  
+/* Ajuste em telas menores */
+@media (max-width: 768px) {
+    #sidebar {
+      position: absolute;
+      height: 100%;
+      z-index: 1000;
+      display: none;
+    }
+    #sidebar.active {
+      display: block;
+    }
+}
+
+/* Estilo do Kanban */
+.kanban {
+    display: flex;
+    gap: 14px;
+    padding: 24px;
+    width: 100%;
+    height: 90vh;
+    overflow-x: auto;
+}
+
+.kanban-column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 12px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    overflow: hidden;
+    position: relative;
+    min-width: 252px;
+}
+
+.kanban-column::after {
+    position: absolute;
+    content: '';
+    height: 5px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.kanban-column[data-id="1"]::after {
+    background-color: #d573b6;
+}
+
+.kanban-column[data-id="2"]::after {
+    background-color: #fea065;
+}
+
+.kanban-column[data-id="3"]::after {
+    background-color: #fed565;
+}
+
+.kanban-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.kanban-title h2 {
+    font-size: 18px;
+    color: #4b5563;
+    font-weight: 600;
+}
+
+.add-card {
+    color: #4b5563;
+    font-size: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.add-card:hover {
+    background-color: #17a2b8;
+}
+
+.kanban-cards {
+    font-family: Lato sans-serif bold;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.kanban-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.kanban-card:hover {
+    background-color: #e9ecef;
+}
+
+.priority select,
+.card-title input,
+.card-description textarea,
+.card-due-date input,
+.card-status select {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Avatar */
+.card-users img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ced4da;
+    margin-top: 10px;
+}
+
+/* Botões e Inputs */
+input, textarea, select {
+    background-color: #ffffff;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Cores de prioridade */
+.low {
+    color: #000;
+    background-color: #17a2b8;
+}
+
+.medium {
+    color: #000;
+    background-color: #ffc107;
+}
+
+.high {
+    color: #000;
+    background-color: #dc3545;
+}
+
+/* Modal - Estilo Geral */
+.modal {
+    display: none; /* Ocultar o modal inicialmente */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: -80px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo com transparência */
+    font-family: Lato sans-serif bold;
+    font-size: large;
+}
+  
+  /* Conteúdo do modal */
+/* Tornar o modal rolável */
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-height: 80vh; /* Altura máxima para limitar o tamanho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: auto; /* Habilitar rolagem vertical */
+  }
+  
+  
+  /* Botão Fechar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+  
+.close:hover {
+    color: #000;
+}
+  
+  /* Inputs e Formulário */
+.form-group {
+    margin-bottom: 10px;
+}
+  
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+  
+textarea, select, input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+textarea {
+    resize: none;
+}
+  
+.btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.btn-info {
+    background-color: #17a2b8;
+    color: #fff;
+    font-family: Lato sans-serif black;
+    font-size: large;
+}
+  
+.btn-info:hover {
+    background-color: #138496;
+}
+  
+.btn-save {
+    font-family: Lato sans-serif black;
+    font-size: large;
+    background-color: #28a745;
+    color: #fff;
+}
+  
+.btn-save:hover {
+    background-color: #218838;
+}
+  

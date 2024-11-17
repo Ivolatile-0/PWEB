@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSkt35CZxnl5Xo9bIWGgy3yYH4XgIBct4K5GAEKdN9x" crossorigin="anonymous">
+    <title>Kanban</title>
+</head>
+<body>
+    <main class="kanban">
+        <div class="d-flex">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="bg-light border-end">
+                <div class="sidebar-header p-3 text-center">
+                    <button id="toggleSidebar" class="btn btn-outline-primary w-100">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+                <ul class="nav flex-column">
+                    <ul class="nav-item">
+                        <a href="#" class="nav-link text-dark d-flex align-items-center">
+                            <i class="fa-solid fa-house"></i>
+                            <span class="nav-text">Home</span>
+                        </a>
+                    </ul>
+                    <ul class="nav-item">
+                        <a href="#" class="nav-link text-dark d-flex align-items-center">
+                            <i class="fa-solid fa-bars-progress"></i>
+                            <span class="nav-text">Meus Quadros</span>
+                        </a>
+                    </ul>
+                    <ul class="nav-item">
+                        <a href="#" class="nav-link text-dark d-flex align-items-center">
+                            <i class="fa-solid fa-folder"></i>
+                            <span class="nav-text">Meus Documentos</span>
+                        </a>
+                    </ul>
+                    <ul class="nav-item">
+                        <a href="#" class="nav-link text-dark d-flex align-items-center">
+                            <i class="fa-solid fa-message"></i>
+                            <span class="nav-text">Chat</span>
+                        </a>
+                    </ul>
+                </ul>
+            </nav>  
+        </div>
+
+        <!-- COLUMN 1 -->
+        <div class="kanban-column" data-id="1">
+            <div class="kanban-title">
+                <h2>Planejamento</h2>
+                <div class="add-card">
+                    <button class="btn-add" id="openModal">
+                    <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="kanban-cards">
+                <div id="taskContainer"></div>
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <form id="infoForm">
+                            <div class="form-group title">
+                                <label for="title">Título</label>
+                                <input type="text" id="title" class="form-control">
+                            </div>
+                            <div class="form-group description">
+                                <label for="description">Descrição</label>
+                                <textarea id="description" class="form-control" rows="4" placeholder="Digite a descrição"></textarea>
+                            </div>
+                            <div class="form-group due-date">
+                                <label for="dueDate">Data de Entrega:</label>
+                                <input type="date" id="dueDate" class="form-control">
+                            </div>
+                            <div class="form-group priority">
+                                <label for="priority">Prioridade:</label>
+                                <select name="priority" id="priority">
+                                    <option value="1" class="low">Baixa Prioridade</option>
+                                    <option value="2" class="medium">Média Prioridade</option>
+                                    <option value="3" class="high">Alta Prioridade</option>
+                                </select>
+                            </div>
+                            <div class="form-group status">
+                                <span>
+                                    <label for="status">Status:</label>
+                                    <select name="status" id="status">
+                                        <option value="">Selecione o status:</option>
+                                        <option value="1">A fazer</option>
+                                        <option value="2">Fazendo</option>
+                                        <option value="3">Feito</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="form-group members">
+                                <label for="members">Membros:</label>
+                                <input type="text" id="members" class="form-control">
+                            </div>
+                            <button type="button" id="saveTask" class="btn btn-save">Salvar</button>
+                            <button type="submit" class="btn btn-edit">Editar</button>
+                            <button type="submit" class="btn btn-delete">Deletar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMN 2 -->
+        <div class="kanban-column" data-id="2">
+            <div class="kanban-title">
+                <h2>Execução</h2>
+                <div class="add-card">
+                    <button class="btn-add" id="openModal">
+                    <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="kanban-cards">
+                <div id="taskContainer"></div>
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <form id="infoForm">
+                            <div class="form-group title">
+                                <label for="title">Título</label>
+                                <input type="text" id="title" class="form-control">
+                            </div>
+                            <div class="form-group description">
+                                <label for="description">Descrição</label>
+                                <textarea id="description" class="form-control" rows="4" placeholder="Digite a descrição"></textarea>
+                            </div>
+                            <div class="form-group due-date">
+                                <label for="dueDate">Data de Entrega:</label>
+                                <input type="date" id="dueDate" class="form-control">
+                            </div>
+                            <div class="form-group priority">
+                                <label for="priority">Prioridade:</label>
+                                <select name="priority" id="priority">
+                                    <option value="1" class="low">Baixa Prioridade</option>
+                                    <option value="2" class="medium">Média Prioridade</option>
+                                    <option value="3" class="high">Alta Prioridade</option>
+                                </select>
+                            </div>
+                            <div class="form-group status">
+                                <span>
+                                    <label for="status">Status:</label>
+                                    <select name="status" id="status">
+                                        <option value="">Selecione o status:</option>
+                                        <option value="1">A fazer</option>
+                                        <option value="2">Fazendo</option>
+                                        <option value="3">Feito</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="form-group members">
+                                <label for="members">Membros:</label>
+                                <input type="text" id="members" class="form-control">
+                            </div>
+                            <button type="button" id="saveTask" class="btn btn-save">Salvar</button>
+                            <button type="submit" class="btn btn-edit">Editar</button>
+                            <button type="submit" class="btn btn-delete">Deletar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMN 3 -->
+        <div class="kanban-column" data-id="3">
+            <div class="kanban-title">
+                <h2>Planejamento</h2>
+                <div class="add-card">
+                    <button class="btn-add" id="openModal">
+                    <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="kanban-cards">
+                <div id="taskContainer"></div>
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <form id="infoForm">
+                            <div class="form-group title">
+                                <label for="title">Título</label>
+                                <input type="text" id="title" class="form-control">
+                            </div>
+                            <div class="form-group description">
+                                <label for="description">Descrição</label>
+                                <textarea id="description" class="form-control" rows="4" placeholder="Digite a descrição"></textarea>
+                            </div>
+                            <div class="form-group due-date">
+                                <label for="dueDate">Data de Entrega:</label>
+                                <input type="date" id="dueDate" class="form-control">
+                            </div>
+                            <div class="form-group priority">
+                                <label for="priority">Prioridade:</label>
+                                <select name="priority" id="priority">
+                                    <option value="1" class="low">Baixa Prioridade</option>
+                                    <option value="2" class="medium">Média Prioridade</option>
+                                    <option value="3" class="high">Alta Prioridade</option>
+                                </select>
+                            </div>
+                            <div class="form-group status">
+                                <span>
+                                    <label for="status">Status:</label>
+                                    <select name="status" id="status">
+                                        <option value="">Selecione o status:</option>
+                                        <option value="1">A fazer</option>
+                                        <option value="2">Fazendo</option>
+                                        <option value="3">Feito</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="form-group members">
+                                <label for="members">Membros:</label>
+                                <input type="text" id="members" class="form-control">
+                            </div>
+                            <button type="button" id="saveTask" class="btn btn-save">Salvar</button>
+                            <button type="submit" class="btn btn-edit">Editar</button>
+                            <button type="submit" class="btn btn-delete">Deletar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
